@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GMSimA"
+version = "3.0.0"
+description = "GMSimA — GUI suite for protein/peptide-membrane analysis of GROMACS trajectories"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Surya Pratap Singh", email = "suryabioinfo@gmail.com" },
+]
+keywords = [
+    "molecular-dynamics", "membrane", "lipid-bilayer", "GROMACS",
+    "MDAnalysis", "peptide", "residence-time", "order-parameter",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+dependencies = [
+    "numpy>=1.22",
+    "scipy>=1.8",
+    "pandas>=1.4",
+    "matplotlib>=3.5",
+    "MDAnalysis>=2.4",
+    "PySide6>=6.4",
+    "networkx>=2.8",
+]
+
+[project.optional-dependencies]
+# Optional exact reader for .tpr files newer than the installed
+# MDAnalysis (e.g. GROMACS 2026 / TPX 138 with MDAnalysis <= 2.10).
+# Without it, such systems are loaded from a .gro/.pdb topology.
+# GPL-licensed: kept optional and NOT bundled in the PyInstaller builds.
+tpr = [
+    "TprParser>=0.1.66",
+]
+build = [
+    "pyinstaller>=6.0",
+]
+
+[project.gui-scripts]
+gmsima = "main:main"
+
+[project.urls]
+Homepage = "https://github.com/suryabioinfo/gmsima"
+
+# ----------------------------------------------------------------------
+# The source tree uses flat top-level packages (analysis/, core/, gui/,
+# workers/, utils/, config/) with absolute imports and a main.py entry
+# module; setuptools is configured explicitly so nothing is guessed.
+# ----------------------------------------------------------------------
+[tool.setuptools]
+py-modules = ["main"]
+packages = ["analysis", "core", "gui", "workers", "utils", "config"]
+
+[tool.setuptools.package-data]
+gui = ["styles.qss"]
