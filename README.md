@@ -8,7 +8,7 @@ GMSimA produces publication-quality figures (300 dpi PNG), the underlying
 data in open formats (`.xvg`/`.csv`/`.txt`), representative structures
 (`.pdb`), a full run log, and a self-contained `report.html` per run.
 
-## Analyses
+## Available Analyses
 
 **Intrinsic membrane properties** (always computed on the whole membrane;
 species-resolved results are decompositions, never restricted calculations):
