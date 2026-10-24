@@ -1,0 +1,359 @@
+/* ======================================================================
+   GMSimA — application stylesheet (v3.0.0)
+
+   Design: one coherent, professional light theme built around a single
+   accent color (#2E5395 — the same deep blue used in the report and
+   figure styling), neutral grays, white "card" panels and consistent
+   controls.
+
+   SCOPING: everything content-related is scoped to the Membrane
+   Analysis tab via  QWidget#MembraneTab ...  (the tab widget carries
+   setObjectName("MembraneTab") in main_window.py). The About tab is
+   deliberately left unstyled — its content is HTML rendered inside a
+   QTextBrowser and keeps the default appearance. Only the shared
+   window chrome (toolbar, header buttons) receives a neutral style,
+   since it is visible from both tabs.
+   ====================================================================== */
+
+/* ---------------- shared window chrome (both tabs) ---------------- */
+
+QMainWindow {
+    background-color: #f4f6f9;
+}
+
+QToolBar {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #d5dbe3;
+    spacing: 8px;
+    padding: 6px 10px;
+}
+
+QToolBar QToolButton {
+    background-color: transparent;
+    color: #1c2733;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+QToolBar QToolButton:hover {
+    background-color: #eef2f8;
+    border-color: #d5dbe3;
+}
+
+QToolBar QToolButton:pressed {
+    background-color: #dde5f0;
+}
+
+QToolBar QToolButton:disabled {
+    color: #9aa5b1;
+}
+
+/* File-dialog navigation buttons (Back/Forward/Up/New folder): give
+   them a proper hit area and icon size — styling any ancestor widget
+   otherwise shrinks them to unusably small icons. */
+QFileDialog QToolButton {
+    min-width: 26px;
+    min-height: 26px;
+    padding: 3px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    qproperty-iconSize: 20px 20px;
+}
+
+QFileDialog QToolButton:hover {
+    background-color: #eef2f8;
+    border-color: #d5dbe3;
+}
+
+#HeaderBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d5dbe3;
+}
+
+#TabButton {
+    background-color: transparent;
+    color: #44515f;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#TabButton:hover {
+    background-color: #eef2f8;
+    color: #1c2733;
+}
+
+#TabButton:checked {
+    background-color: #2E5395;
+    color: #ffffff;
+}
+
+QTabWidget::pane {
+    border: none;
+}
+
+/* ---------------- Membrane Analysis tab only ---------------- */
+
+QWidget#MembraneTab {
+    background-color: #f4f6f9;
+    color: #1c2733;
+    font-size: 12px;
+}
+
+QWidget#MembraneTab QLabel {
+    color: #44515f;
+    background: transparent;
+}
+
+/* group boxes as white cards */
+QWidget#MembraneTab QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    margin-top: 9px;
+    padding: 8px 10px 6px 10px;
+    font-weight: 600;
+}
+
+QWidget#MembraneTab QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 6px;
+    color: #2E5395;
+    background-color: transparent;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+}
+
+/* text inputs */
+QWidget#MembraneTab QLineEdit {
+    background-color: #ffffff;
+    color: #1c2733;
+    border: 1px solid #c3ccd6;
+    border-radius: 5px;
+    padding: 5px 8px;
+    selection-background-color: #2E5395;
+    selection-color: #ffffff;
+}
+
+QWidget#MembraneTab QLineEdit:focus {
+    border: 1px solid #2E5395;
+}
+
+QWidget#MembraneTab QLineEdit:disabled {
+    background-color: #eef1f5;
+    color: #9aa5b1;
+}
+
+/* combo boxes */
+QWidget#MembraneTab QComboBox {
+    background-color: #ffffff;
+    color: #1c2733;
+    border: 1px solid #c3ccd6;
+    border-radius: 5px;
+    padding: 4px 8px;
+    min-height: 20px;
+}
+
+QWidget#MembraneTab QComboBox:focus {
+    border: 1px solid #2E5395;
+}
+
+QWidget#MembraneTab QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    border: none;
+    width: 24px;
+}
+
+QWidget#MembraneTab QComboBox::down-arrow {
+    image: url("@ASSETS@/arrow_down.png");
+    width: 10px;
+    height: 6px;
+    margin-right: 7px;
+}
+
+QWidget#MembraneTab QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    color: #1c2733;
+    border: 1px solid #c3ccd6;
+    selection-background-color: #2E5395;
+    selection-color: #ffffff;
+}
+
+/* spin boxes */
+QWidget#MembraneTab QSpinBox {
+    background-color: #ffffff;
+    color: #1c2733;
+    border: 1px solid #c3ccd6;
+    border-radius: 5px;
+    padding: 3px 6px;
+}
+
+QWidget#MembraneTab QSpinBox:focus {
+    border: 1px solid #2E5395;
+}
+
+QWidget#MembraneTab QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    width: 18px;
+    border-left: 1px solid #d5dbe3;
+    border-bottom: 1px solid #d5dbe3;
+    border-top-right-radius: 5px;
+    background-color: #f4f6f9;
+}
+
+QWidget#MembraneTab QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    width: 18px;
+    border-left: 1px solid #d5dbe3;
+    border-bottom-right-radius: 5px;
+    background-color: #f4f6f9;
+}
+
+QWidget#MembraneTab QSpinBox::up-button:hover,
+QWidget#MembraneTab QSpinBox::down-button:hover {
+    background-color: #dde5f0;
+}
+
+QWidget#MembraneTab QSpinBox::up-arrow {
+    image: url("@ASSETS@/arrow_up.png");
+    width: 8px;
+    height: 5px;
+}
+
+QWidget#MembraneTab QSpinBox::down-arrow {
+    image: url("@ASSETS@/arrow_down.png");
+    width: 8px;
+    height: 5px;
+}
+
+/* checkboxes */
+QWidget#MembraneTab QCheckBox {
+    color: #1c2733;
+    background: transparent;
+    spacing: 8px;
+    padding: 1px 0;
+    font-weight: normal;
+}
+
+QWidget#MembraneTab QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #b3bec9;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+QWidget#MembraneTab QCheckBox::indicator:hover {
+    border-color: #2E5395;
+}
+
+QWidget#MembraneTab QCheckBox::indicator:checked {
+    background-color: #2E5395;
+    border-color: #2E5395;
+    image: none;
+}
+
+/* buttons */
+QWidget#MembraneTab QPushButton {
+    background-color: #ffffff;
+    color: #2E5395;
+    border: 1px solid #2E5395;
+    border-radius: 5px;
+    padding: 5px 16px;
+    font-weight: 600;
+}
+
+QWidget#MembraneTab QPushButton:hover {
+    background-color: #eef2f8;
+}
+
+QWidget#MembraneTab QPushButton:pressed {
+    background-color: #dde5f0;
+}
+
+QWidget#MembraneTab QPushButton:disabled {
+    color: #9aa5b1;
+    border-color: #c3ccd6;
+    background-color: #eef1f5;
+}
+
+/* the Run button: the one filled, high-emphasis control */
+QWidget#MembraneTab QPushButton#runButton {
+    background-color: #2E5395;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+QWidget#MembraneTab QPushButton#runButton:hover {
+    background-color: #24447c;
+}
+
+QWidget#MembraneTab QPushButton#runButton:pressed {
+    background-color: #1c3763;
+}
+
+QWidget#MembraneTab QPushButton#runButton:disabled {
+    background-color: #c3ccd6;
+    color: #ffffff;
+}
+
+/* progress bar */
+QWidget#MembraneTab QProgressBar {
+    background-color: #e4e8ee;
+    border: none;
+    border-radius: 6px;
+    height: 14px;
+    text-align: center;
+    color: #1c2733;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+QWidget#MembraneTab QProgressBar::chunk {
+    background-color: #4b8bf8;
+    border-radius: 6px;
+}
+
+/* scrollbars (subtle) */
+QWidget#MembraneTab QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0;
+}
+
+QWidget#MembraneTab QScrollBar::handle:vertical {
+    background: #c3ccd6;
+    border-radius: 5px;
+    min-height: 30px;
+}
+
+QWidget#MembraneTab QScrollBar::handle:vertical:hover {
+    background: #9aa5b1;
+}
+
+QWidget#MembraneTab QScrollBar::add-line:vertical,
+QWidget#MembraneTab QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+/* tooltips (global, harmless on About) */
+QToolTip {
+    background-color: #1c2733;
+    color: #ffffff;
+    border: none;
+    padding: 6px 8px;
+    font-size: 11px;
+}

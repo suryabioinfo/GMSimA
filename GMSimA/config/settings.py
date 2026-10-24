@@ -1,0 +1,2 @@
+APP_NAME= "GMSimA"
+VERSION = "3.0.0"
